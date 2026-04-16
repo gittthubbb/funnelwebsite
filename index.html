@@ -739,11 +739,7 @@
           <div class="contact-details reveal d3">
             <div class="contact-detail">
               <span>📧</span>
-              <span><strong>hei@helstadsolutions.com</strong></span>
-            </div>
-            <div class="contact-detail">
-              <span>📞</span>
-              <span><strong>+47 XXX XX XXX</strong></span>
+              <span><strong>alexander@helstadsolutions.com</strong></span>
             </div>
           </div>
         </div>
@@ -769,15 +765,9 @@
           <div class="form-row">
             <div class="form-field">
               <label class="form-label" for="email">E-post <span class="form-optional">(valgfritt)</span></label>
-              <input type="email" id="email" name="email" class="form-input" placeholder="din@epost.no" />
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="telefon">Telefon <span class="form-optional">(valgfritt)</span></label>
-              <input type="tel" id="telefon" name="telefon" class="form-input" placeholder="+47 000 00 000" />
+              <input type="email" id="email" name="email" class="form-input" placeholder="din@epost.no" required />
             </div>
           </div>
-
-          <p class="form-contact-hint">Fyll inn minst én av e-post eller telefon så vi kan nå deg.</p>
 
           <div class="form-field">
             <label class="form-label" for="melding">Hva trenger du?</label>
@@ -932,15 +922,6 @@
     form.addEventListener('submit', async e => {
       e.preventDefault();
 
-      // Require at least email or phone
-      const email   = document.getElementById('email').value.trim();
-      const telefon = document.getElementById('telefon').value.trim();
-      if (!email && !telefon) {
-        formStatus.textContent = 'Fyll inn e-post eller telefon så vi kan nå deg.';
-        formStatus.style.color = 'var(--gray)';
-        formStatus.style.display = 'block';
-        return;
-      }
 
       submitBtn.textContent = 'Sender…';
       submitBtn.disabled = true;
@@ -957,11 +938,11 @@
           formStatus.textContent = '✓ Takk! Vi svarer innen én virkedag.';
           formStatus.style.color = 'var(--gold)';
         } else {
-          formStatus.textContent = 'Noe gikk galt. Send oss en e-post på hei@helstadsolutions.com';
+          formStatus.textContent = 'Noe gikk galt. Send oss en e-post på alexander@helstadsolutions.com';
           formStatus.style.color = 'var(--gray)';
         }
       } catch {
-        formStatus.textContent = 'Noe gikk galt. Send oss en e-post på hei@helstadsolutions.com';
+        formStatus.textContent = 'Noe gikk galt. Send oss en e-post på alexander@helstadsolutions.com';
         formStatus.style.color = 'var(--gray)';
       }
 
