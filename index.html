@@ -35,7 +35,6 @@
     "name": "HelstadSolutions",
     "description": "Premium webutvikling for norske bedrifter. Skreddersydde, høykvalitets digitale løsninger som skaper reelle resultater.",
     "url": "https://www.helstadsolutions.com",
-    "email": "alexander@helstadsolutions.com",
     "founder": {
       "@type": "Person",
       "name": "Alexander Helstad",
@@ -810,7 +809,7 @@
           <div class="contact-details reveal d3">
             <div class="contact-detail">
               <span>📧</span>
-              <span><strong>alexander@helstadsolutions.com</strong></span>
+              <span><strong id="contact-email"></strong></span>
             </div>
           </div>
         </div>
@@ -1009,11 +1008,11 @@
           formStatus.textContent = '✓ Takk! Vi svarer innen én virkedag.';
           formStatus.style.color = 'var(--gold)';
         } else {
-          formStatus.textContent = 'Noe gikk galt. Send oss en e-post på alexander@helstadsolutions.com';
+          formStatus.textContent = 'Noe gikk galt. Send oss en e-post på ' + _em();
           formStatus.style.color = 'var(--gray)';
         }
       } catch {
-        formStatus.textContent = 'Noe gikk galt. Send oss en e-post på alexander@helstadsolutions.com';
+        formStatus.textContent = 'Noe gikk galt. Send oss en e-post på ' + _em();
         formStatus.style.color = 'var(--gray)';
       }
 
@@ -1022,6 +1021,23 @@
       submitBtn.disabled = false;
     });
   }
+
+  // Email obfuscation — decoded at runtime so scrapers see no plain address
+  function _em() { return atob('YWxleGFuZGVyQGhlbHN0YWRzb2x1dGlvbnMuY29t'); }
+  (function() {
+    var el = document.getElementById('contact-email');
+    if (el) {
+      var addr = _em();
+      el.textContent = addr;
+      var link = document.createElement('a');
+      link.href = 'mailto:' + addr;
+      link.style.color = 'inherit';
+      link.style.textDecoration = 'none';
+      link.textContent = addr;
+      el.textContent = '';
+      el.appendChild(link);
+    }
+  })();
   </script>
 </body>
 </html>
