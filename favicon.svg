@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    rect { fill: #0c0c0d; } path { fill: #f6f6f4; }
+    @media (prefers-color-scheme: dark) { rect { fill: #ededee; } path { fill: #0a0a0b; } }
+  </style>
+  <rect width="32" height="32" rx="8"/>
+  <path d="M10 8h3v6.5h6V8h3v16h-3v-6.5h-6V24h-3z"/>
+</svg>
